@@ -13,7 +13,7 @@ export class WeatherService {
 
     constructor(private http: HttpClient) { }
 
-    getWeather(lon:number, lat: number) {
-        return this.http.get(`${this.url}?lat=${lat}&lon=${lon}&appid=${this.apiKey}`)
+    getWeather(lon:number, lat: number, numOfDays: number) {
+        return this.http.get(`${this.url}?lat=${lat}&lon=${lon}&cnt${numOfDays}&appid=${this.apiKey}`)
     }
 }
