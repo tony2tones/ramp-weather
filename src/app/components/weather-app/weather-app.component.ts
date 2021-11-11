@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Forecast } from 'src/app/models/forecast.models';
+import { Forecast, List } from 'src/app/models/forecast.models';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class WeatherAppComponent implements OnInit {
   public isLoading: boolean = false;
-  public forecast = <Forecast>{};
+  public forecast: Forecast = <Forecast>{};
+  public weekForecast: List = <List>{};
+  public today:any = [];
   public errormsg: string = '';
   public lon: number = 0;
   public lat: number = 0;
@@ -52,7 +54,15 @@ export class WeatherAppComponent implements OnInit {
       .subscribe((forecast: Forecast) => {
         this.forecast = forecast;
         this.cityName = this.forecast.city?.name;
-        console.log(this.forecast);
+        this.weekForecast = this.forecast.list;
+        this.weekForecast = this.weekForecast;
+        console.log(this.weekForecast);
+        this.today = Object.entries(this.weekForecast);
+
+        console.log(this.today);
+        // this.forecast.list.map((tempDeet) => {
+        //   console.log(tempDeet.temp);
+        // });
         this.isLoading = true;
       }
         ,
@@ -66,3 +76,7 @@ export class WeatherAppComponent implements OnInit {
     this.forecast = <Forecast>{};
   }
 }
+function Tempertrues(arg0: any, Tempertrues: any) {
+  throw new Error('Function not implemented.');
+}
+

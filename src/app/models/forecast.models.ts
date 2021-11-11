@@ -1,13 +1,6 @@
 import { Main } from "./main.models";
 import { Weather } from "./weather.model";
 
-// export interface Forecast {
-//     base: string,
-//     name: string,
-//     main: Main,
-//     weather: Weather[]
-// }
-
 
 export interface Forecast {
     list: List,
@@ -23,7 +16,12 @@ export interface City {
 }
 
 export interface List {
+    temperature: Tempertrues
+}
 
+export interface Tempertrues {
+    max: number,
+    min: number
 }
 
 export interface Coord {

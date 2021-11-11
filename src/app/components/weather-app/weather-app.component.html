@@ -3,6 +3,11 @@
 
 <!-- {{ forecast | json}} -->
 <div *ngIf="isLoading">
-    {{forecast.city | json}}
+    <!-- {{forecast.list | json}} -->
     <p>{{cityName}}</p>
+    <p>{{weekForecast | json}}</p>
 </div>
+<!-- 
+<div class="content" *ngFor="let temp of weekForecast">
+    <div>{{temp}}</div>
+</div> -->
