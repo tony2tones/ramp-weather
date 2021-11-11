@@ -1,1 +1,8 @@
 <p>weather-app works!</p>
+{{ errormsg }}
+
+<!-- {{ forecast | json}} -->
+<div *ngIf="isLoading">
+    {{forecast.city | json}}
+    <p>{{cityName}}</p>
+</div>

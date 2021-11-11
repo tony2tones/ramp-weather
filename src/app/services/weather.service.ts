@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable(
     {
@@ -13,7 +14,7 @@ export class WeatherService {
 
     constructor(private http: HttpClient) { }
 
-    getWeather(lon:number, lat: number, numOfDays: number) {
-        return this.http.get(`${this.url}?lat=${lat}&lon=${lon}&cnt${numOfDays}&appid=${this.apiKey}`)
+    getWeather(lon:number, lat: number, numOfDays: number): Observable<any> {
+        return this.http.get(`${this.url}?lat=${lat}&lon=${lon}&cnt${numOfDays}&appid=${this.apiKey}`);
     }
 }
