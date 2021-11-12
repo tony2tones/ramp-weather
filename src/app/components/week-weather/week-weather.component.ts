@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-week-weather',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./week-weather.component.css']
 })
 export class WeekWeatherComponent implements OnInit {
-
+  @Input() dateOfWeek: string = '';
+  @Input() min_temp: number = 0;
+  @Input() max_temp: number = 0;
   constructor() { }
 
   ngOnInit(): void {
