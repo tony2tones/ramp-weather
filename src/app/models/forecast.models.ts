@@ -1,30 +1,28 @@
-import { Main } from "./main.models";
 import { Weather } from "./weather.model";
 
 
 export interface Forecast {
-    list: List,
-    name: string,
-    main: Main | string,
-    city: City,
-    weather: Weather[]
+    city: City;
+    list: List[];
 }
 
 export interface City {
-    coord: Coord,
-    name: string,
-}
-
-export interface List {
-    temperature: Tempertrues
-}
-
-export interface Tempertrues {
-    max: number,
-    min: number
+    name: string;
+    coord: Coord;
 }
 
 export interface Coord {
-    lot: number,
-    lat: number
+    lon: number;
+    lat: number;
 }
+
+export interface List {
+    weather: Weather[];
+    temp: Temp;
+}
+
+export interface Temp {
+    min: number;
+    max: number;
+}
+

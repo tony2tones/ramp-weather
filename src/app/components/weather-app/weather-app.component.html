@@ -1,13 +1,12 @@
 <p>weather-app works!</p>
 {{ errormsg }}
 
-<!-- {{ forecast | json}} -->
-<div *ngIf="isLoading">
-    <!-- {{forecast.list | json}} -->
-    <p>{{cityName}}</p>
-    <p>{{weekForecast | json}}</p>
+<div *ngIf="!isLoading">
+    {{forecast.city.name}}
+    <p>{{forecast}}</p>
+    <p>{{todayDate}}</p>
+    <p>{{todayMax}}</p>
+    <p>{{todayMin}}</p>
 </div>
-<!-- 
-<div class="content" *ngFor="let temp of weekForecast">
-    <div>{{temp}}</div>
-</div> -->
+
+<app-week-weather></app-week-weather>

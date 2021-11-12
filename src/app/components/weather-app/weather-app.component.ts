@@ -10,8 +10,10 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class WeatherAppComponent implements OnInit {
   public isLoading: boolean = false;
   public forecast: Forecast = <Forecast>{};
-  public weekForecast: List = <List>{};
-  public today:any = [];
+  public weekForecast: List[] = [];
+  public todayMax: number = 0;
+  public todayMin: number = 0;
+  public todayDate = {};
   public errormsg: string = '';
   public lon: number = 0;
   public lat: number = 0;
@@ -46,29 +48,36 @@ export class WeatherAppComponent implements OnInit {
     this.errormsg = 'failed to load weather please allow geolocation and refresh';
   }
 
+  public dateFormatter() {
+    const dateValue: Date = new Date();
+
+     let day = dateValue.getDay();
+      let month = dateValue.toLocaleString('default', { month: 'short'});
+      let date = dateValue.getDate();
+      this.todayDate = `${day} ${month} ${date}`;
+    console.log(this.todayDate);
+  }
+
 
   getWeather(position: any) {
     this.isLoading = true;
     console.log(this.isLoading);
     this.weatherService.getWeather(position.coords.longitude, position.coords.longitude, this.dayCount)
-      .subscribe((forecast: Forecast) => {
-        this.forecast = forecast;
-        this.cityName = this.forecast.city?.name;
+      .subscribe((response: Forecast) => {
+        console.log(response);
+        this.forecast = response;
+        this.cityName = this.forecast.city.name;
         this.weekForecast = this.forecast.list;
-        this.weekForecast = this.weekForecast;
-        console.log(this.weekForecast);
-        this.today = Object.entries(this.weekForecast);
 
-        console.log(this.today);
-        // this.forecast.list.map((tempDeet) => {
-        //   console.log(tempDeet.temp);
-        // });
-        this.isLoading = true;
+        this.todayMax = this.weekForecast[0].temp.max;
+        this.todayMin = this.weekForecast[0].temp.min;
+        this.dateFormatter();
+        this.isLoading = false;
       }
         ,
         (error) => {
           console.log(error);
-          this.isLoading = true;
+          this.isLoading = false;
         });
   }
 
