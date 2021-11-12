@@ -1,0 +1,42 @@
+.container {
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  font-size: x-large;
+}
+
+.temp {
+  display: flex;
+}
+
+.max {
+}
+
+span.stretch {
+  display: inline-block;
+  padding-right: 5px;
+  margin: 30px;
+  -webkit-transform: scale(3, 9); /* Safari and Chrome */
+  -moz-transform: scale(3, 9); /* Firefox */
+  -ms-transform: scale(3, 9); /* IE 9 */
+  -o-transform: scale(3, 9); /* Opera */
+  transform: scale(3, 9); /* W3C */
+}
+
+.temp-num {
+    font-size: x-large;
+    padding-left: 5px;
+  
+}
+
+.time {
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+}

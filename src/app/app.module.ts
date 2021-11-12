@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { WeatherAppComponent } from './components/weather-app/weather-app.component';
 import { WeatherService } from './services/weather.service';
 import { WeekWeatherComponent } from './components/week-weather/week-weather.component';
+import { ToCelcuis } from './directives/celcius.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherAppComponent,
-    WeekWeatherComponent
+    WeekWeatherComponent,
+    ToCelcuis,
   ],
   imports: [
     BrowserModule,

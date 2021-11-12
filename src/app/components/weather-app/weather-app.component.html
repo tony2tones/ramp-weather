@@ -1,12 +1,25 @@
-<p>weather-app works!</p>
-{{ errormsg }}
-
-<div *ngIf="!isLoading">
-    {{forecast.city.name}}
-    <p>{{forecast}}</p>
-    <p>{{todayDate}}</p>
-    <p>{{todayMax}}</p>
-    <p>{{todayMin}}</p>
-</div>
-
-<app-week-weather ></app-week-weather>
+<div class="container">
+  <div *ngIf="!isLoading">
+    <div class="error-message" *ngIf="noData">
+      {{ errormsg }}
+    </div>
+  </div>
+  <div class="weather-panel">
+    <p class="title">Today</p>
+    <div class="temp">
+      <div class="temp-num">
+          <p><span class="stretch">Max</span> {{ todayMax | toCelcuis }}</p>
+        </div>
+          <i class="material-icons"> device_thermostat </i>
+      <div class="temp-num">
+          <p><span class="stretch">Min</span> {{ todayMin | toCelcuis }}</p>
+      </div>
+    </div>
+ </div>
+    <p>{{ forecast.city.name }}</p>
+    <div class="time">
+      <span><i class="material-icons"> watch_later </i></span>
+      <p>{{ todayDate }}</p>
+    </div>
+    <app-week-weather></app-week-weather>
+  </div>

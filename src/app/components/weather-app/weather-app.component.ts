@@ -9,10 +9,11 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class WeatherAppComponent implements OnInit {
   public isLoading: boolean = false;
+  public noData: boolean = false;
   public forecast: Forecast = <Forecast>{};
   public weekForecast: List[] = [];
-  public todayMax: number = 0;
-  public todayMin: number = 0;
+  public todayMax: string = '';
+  public todayMin: string = '';
   public todayDate = {};
   public errormsg: string = '';
   public lon: number = 0;
@@ -50,12 +51,10 @@ export class WeatherAppComponent implements OnInit {
 
   public dateFormatter() {
     const dateValue: Date = new Date();
-
-     let day = dateValue.getDay();
-      let month = dateValue.toLocaleString('default', { month: 'short'});
-      let date = dateValue.getDate();
-      this.todayDate = `${day} ${month} ${date}`;
-    console.log(this.todayDate);
+    let day = dateValue.getDay();
+    let month = dateValue.toLocaleString('default', { month: 'short' });
+    let date = dateValue.getDate();
+    this.todayDate = `${day} ${month} ${date}`;
   }
 
 
@@ -69,13 +68,15 @@ export class WeatherAppComponent implements OnInit {
         this.cityName = this.forecast.city.name;
         this.weekForecast = this.forecast.list;
 
-        this.todayMax = this.weekForecast[0].temp.max;
-        this.todayMin = this.weekForecast[0].temp.min;
+        this.todayMax = String(this.weekForecast[0].temp.max);
+        this.todayMin = String(this.weekForecast[0].temp.min);
         this.dateFormatter();
         this.isLoading = false;
       }
         ,
         (error) => {
+          this.errorHandler(error);
+          this.noData = true;
           console.log(error);
           this.isLoading = false;
         });
