@@ -1,10 +1,16 @@
-<div class="container">
+<div class="week-container">
+  <!-- <ul> -->
+  <!-- <li>{{dateOfWeek}}</li> -->
+  <!-- </ul> -->
   <ul>
-    <li>{{dateOfWeek}}</li>
-  </ul>
-  <ul class="week-forecast">
     <li>
-      {{ min_temp | celcuisConverter }} / {{ max_temp | celcuisConverter }}
+      <div class="date">
+      </div>
+      <div class="weather-widget">
+        <p>todays date</p>
+        <p>{{ min_temp | celcuisConverter }} / {{ max_temp | celcuisConverter }}</p>
+      </div>
+
     </li>
   </ul>
 </div>

@@ -1,4 +1,5 @@
 .main-container {
-    background-color: coral;
-    padding-top: 3rem;
+  background-color: coral;
+  height: 100vh;
+  padding-top: 3rem;
 }
