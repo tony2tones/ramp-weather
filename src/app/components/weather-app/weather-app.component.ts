@@ -12,8 +12,8 @@ export class WeatherAppComponent implements OnInit {
   public noData: boolean = false;
   public forecast: Forecast = <Forecast>{};
   public weekForecast: List[] = [];
-  public todayMax: string = '';
-  public todayMin: string = '';
+  public todayMax: number = 0;
+  public todayMin: number = 0;
   public todayDate = {};
   public errormsg: string = '';
   public lon: number = 0;
@@ -53,23 +53,24 @@ export class WeatherAppComponent implements OnInit {
     const dateValue: Date = new Date();
     let day = dateValue.getDay();
     let month = dateValue.toLocaleString('default', { month: 'short' });
-    let date = dateValue.getDate();
-    this.todayDate = `${day} ${month} ${date}`;
+    this.todayDate = `${day} ${month}`;
   }
-
 
   getWeather(position: any) {
     this.isLoading = true;
     console.log(this.isLoading);
     this.weatherService.getWeather(position.coords.longitude, position.coords.longitude, this.dayCount)
       .subscribe((response: Forecast) => {
-        console.log(response);
+        if (!response) {
+          this.noData = true;
+        }
+
         this.forecast = response;
         this.cityName = this.forecast.city.name;
         this.weekForecast = this.forecast.list;
 
-        this.todayMax = String(this.weekForecast[0].temp.max);
-        this.todayMin = String(this.weekForecast[0].temp.min);
+        this.todayMax = this.weekForecast[0].temp.max;
+        this.todayMin = this.weekForecast[0].temp.min;
         this.dateFormatter();
         this.isLoading = false;
       }
@@ -85,8 +86,5 @@ export class WeatherAppComponent implements OnInit {
   resetForecast() {
     this.forecast = <Forecast>{};
   }
-}
-function Tempertrues(arg0: any, Tempertrues: any) {
-  throw new Error('Function not implemented.');
 }
 

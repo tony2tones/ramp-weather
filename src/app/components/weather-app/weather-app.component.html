@@ -8,18 +8,24 @@
     <p class="title">Today</p>
     <div class="temp">
       <div class="temp-num">
-          <p><span class="stretch">Max</span> {{ todayMax | toCelcuis }}</p>
+          <p><span class="stretch">Max</span> {{ todayMax | celcuisConverter }}</p>
         </div>
           <i class="material-icons"> device_thermostat </i>
       <div class="temp-num">
-          <p><span class="stretch">Min</span> {{ todayMin | toCelcuis }}</p>
+          <p><span class="stretch">Min</span> {{ todayMin | celcuisConverter }}</p>
       </div>
     </div>
- </div>
     <p>{{ forecast.city.name }}</p>
     <div class="time">
-      <span><i class="material-icons"> watch_later </i></span>
-      <p>{{ todayDate }}</p>
+        <span><i class="material-icons"> event </i></span>
+        <p>{{ todayDate }}</p>
     </div>
-    <app-week-weather></app-week-weather>
+    <div *ngFor="let day of weekForecast">
+        {{ day.temp.max }}
+        <app-week-weather [min_temp]="day.temp.min" [max_temp]="day.temp.max" [dateOfWeek]=""></app-week-weather>
+        
+    </div>
+    <!-- {{ weekForecast | json}} -->
+    <!-- {{ weekForecast[0]}} -->
+</div>
   </div>

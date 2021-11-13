@@ -13,6 +13,8 @@
 
 .temp {
   display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .max {
@@ -21,7 +23,7 @@
 span.stretch {
   display: inline-block;
   padding-right: 5px;
-  margin: 30px;
+  margin: 40px;
   -webkit-transform: scale(3, 9); /* Safari and Chrome */
   -moz-transform: scale(3, 9); /* Firefox */
   -ms-transform: scale(3, 9); /* IE 9 */
@@ -32,11 +34,12 @@ span.stretch {
 .temp-num {
     font-size: x-large;
     padding-left: 5px;
+    margin-top:50px
   
 }
 
 .time {
   font-size: xx-large;
   display: flex;
-  justify-content: center;
+  justify-content:center;
 }
