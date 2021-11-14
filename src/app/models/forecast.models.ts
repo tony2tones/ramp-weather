@@ -19,7 +19,7 @@ export interface Coord {
 export interface List {
     weather: Weather[];
     temp: Temp;
-    day?: number | undefined;
+    day?: number;
 }
 
 export interface Temp {
