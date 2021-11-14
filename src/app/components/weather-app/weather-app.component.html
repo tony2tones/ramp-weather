@@ -5,7 +5,7 @@
       test
     </div>
   </div>
-  <div class="weather-panel" [ngClass]="{'hide' : isLoading}">
+  <div class="weather-panel" [ngClass]="{ hide: isLoading }">
     <p class="title">Today</p>
     <div class="temp">
       <div class="temp-num">
@@ -20,20 +20,22 @@
         </p>
       </div>
     </div>
-    <p>Location: {{ forecast.city?.name }}</p>
     <div class="time">
       <span><i class="material-icons"> event </i></span>
       <p>{{ todayDate }}</p>
     </div>
+    <div class="location">
+      <p>Location: {{ forecast.city?.name }}</p>
+    </div>
     <div class="weather-week">
       <div *ngFor="let dayOfWeek of sortedForecast; let i = index">
         <app-week-weather
-        *ngIf="dayOfWeek.day"
+          *ngIf="dayOfWeek.day"
           [min_temp]="dayOfWeek.temp.min"
           [max_temp]="dayOfWeek.temp.max"
           [dateOfWeek]="dayOfWeek.day"
-          (rendingComplete)= "hasLoaded = $event"
-          ></app-week-weather>
+          (rendingComplete)="hasLoaded = $event"
+        ></app-week-weather>
       </div>
     </div>
   </div>

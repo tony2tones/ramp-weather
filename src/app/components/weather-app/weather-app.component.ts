@@ -61,13 +61,12 @@ export class WeatherAppComponent implements OnInit {
 
   public futureDateFormatter(weeklyForcast: List[]) {
     let restOfWeek = weeklyForcast;
-    const dateValue: Date = new Date();
     let index = 1;
     for (let i = 0; i < restOfWeek.length; i++) {
-      restOfWeek[i].day = dateValue.getDate() + index + i;
+      let dayOfweek = new Date(Date.now() + (index + i) * 86400000);
+      restOfWeek[i].day = dayOfweek.getDate();
     }
     this.sortedForecast = restOfWeek;
-    this.isLoading = false;
   }
 
   public getWeather(position: any) {
@@ -86,6 +85,7 @@ export class WeatherAppComponent implements OnInit {
         this.todayMin = this.weekForecast[0].temp.min;
         this.setRestOfWeekForeCast(this.weekForecast);
         this.dateFormatter();
+        this.isLoading = false;
       },
         (error) => {
           this.errorHandler(error);

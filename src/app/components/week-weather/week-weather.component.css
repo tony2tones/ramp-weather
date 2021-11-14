@@ -1,13 +1,14 @@
 .week-container ul {
-    
+    font-family: 'Roboto', sans-serif;
     list-style-type: none;
 }
 
 
 
 .weather-widget {
-    border: solid 2px black;
+    border: solid 2px #24272e;
     margin:5px;
-    height: 6rem;
+    height: 5rem;
+    padding-top: 20px;
     width:6rem;
 }
