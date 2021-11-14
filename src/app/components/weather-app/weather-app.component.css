@@ -119,6 +119,8 @@
   }
 
   .error-message {
+    font-family: "Roboto", sans-serif;
+    font-size: large;
     word-wrap: break-word;
     height: 14rem;
     padding: 20%;
