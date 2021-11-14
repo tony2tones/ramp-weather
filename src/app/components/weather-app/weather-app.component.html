@@ -1,10 +1,11 @@
 <div class="container">
-  <div *ngIf="!isLoading">
+  <div *ngIf="isLoading && !sortedForecast.length">
     <div class="error-message" *ngIf="noData">
       {{ errormsg }}
+      test
     </div>
   </div>
-  <div class="weather-panel">
+  <div class="weather-panel" [ngClass]="{'hide' : isLoading}">
     <p class="title">Today</p>
     <div class="temp">
       <div class="temp-num">
@@ -19,20 +20,20 @@
         </p>
       </div>
     </div>
-    <p>{{ forecast.city.name }}</p>
+    <p>Location: {{ forecast.city?.name }}</p>
     <div class="time">
       <span><i class="material-icons"> event </i></span>
       <p>{{ todayDate }}</p>
     </div>
     <div class="weather-week">
-      <div *ngFor="let day of weekForecast; let i = index">
+      <div *ngFor="let dayOfWeek of sortedForecast; let i = index">
         <app-week-weather
-          [min_temp]="day.temp.min"
-          [max_temp]="day.temp.max"
-          [index]="i"
-        ></app-week-weather>
-
-        <!-- [dateOfWeek]="" -->
+        *ngIf="dayOfWeek.day"
+          [min_temp]="dayOfWeek.temp.min"
+          [max_temp]="dayOfWeek.temp.max"
+          [dateOfWeek]="dayOfWeek.day"
+          (rendingComplete)= "hasLoaded = $event"
+          ></app-week-weather>
       </div>
     </div>
   </div>

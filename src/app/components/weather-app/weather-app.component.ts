@@ -8,11 +8,13 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./weather-app.component.css']
 })
 export class WeatherAppComponent implements OnInit {
-  public isLoading: boolean = false;
+  public isLoading: boolean = true;
+  public hasLoaded: boolean = false;
   public noData: boolean = false;
   public forecast: Forecast = <Forecast>{};
   public weekForecast: List[] = [];
   public sortedForecast: List[] = [];
+  public dateOfWeek: number = 0;
   public todayMax: number = 0;
   public todayMin: number = 0;
   public todayDate = {};
@@ -34,7 +36,7 @@ export class WeatherAppComponent implements OnInit {
   }
 
 
-  getForecast() {
+  public getForecast() {
     this.resetForecast();
     navigator.geolocation.getCurrentPosition(
       this.successHandler.bind(this),
@@ -57,9 +59,19 @@ export class WeatherAppComponent implements OnInit {
     this.todayDate = `${day} ${month}`;
   }
 
-  getWeather(position: any) {
+  public futureDateFormatter(weeklyForcast: List[]) {
+    let restOfWeek = weeklyForcast;
+    const dateValue: Date = new Date();
+    let index = 1;
+    for (let i = 0; i < restOfWeek.length; i++) {
+      restOfWeek[i].day = dateValue.getDate() + index + i;
+    }
+    this.sortedForecast = restOfWeek;
+    this.isLoading = false;
+  }
+
+  public getWeather(position: any) {
     this.isLoading = true;
-    console.log(this.isLoading);
     this.weatherService.getWeather(position.coords.longitude, position.coords.longitude, this.dayCount)
       .subscribe((response: Forecast) => {
         if (!response) {
@@ -72,11 +84,9 @@ export class WeatherAppComponent implements OnInit {
 
         this.todayMax = this.weekForecast[0].temp.max;
         this.todayMin = this.weekForecast[0].temp.min;
+        this.setRestOfWeekForeCast(this.weekForecast);
         this.dateFormatter();
-        this.setRestOfWeekForeCast();
-        this.isLoading = false;
-      }
-        ,
+      },
         (error) => {
           this.errorHandler(error);
           this.noData = true;
@@ -85,8 +95,9 @@ export class WeatherAppComponent implements OnInit {
         });
   }
 
-  setRestOfWeekForeCast() {
-    return this.weekForecast.shift();
+  setRestOfWeekForeCast(weeklyForcast: List[]) {
+    weeklyForcast.shift();
+    this.futureDateFormatter(weeklyForcast);
   }
 
   resetForecast() {
