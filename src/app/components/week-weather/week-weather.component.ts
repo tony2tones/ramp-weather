@@ -9,6 +9,7 @@ export class WeekWeatherComponent implements OnInit {
   @Input() dateOfWeek: string = '';
   @Input() min_temp: number = 0;
   @Input() max_temp: number = 0;
+  @Input() index: number = 0;
   constructor() { }
 
   ngOnInit(): void {

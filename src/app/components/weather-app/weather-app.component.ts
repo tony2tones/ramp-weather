@@ -12,6 +12,7 @@ export class WeatherAppComponent implements OnInit {
   public noData: boolean = false;
   public forecast: Forecast = <Forecast>{};
   public weekForecast: List[] = [];
+  public sortedForecast: List[] = [];
   public todayMax: number = 0;
   public todayMin: number = 0;
   public todayDate = {};
@@ -72,6 +73,7 @@ export class WeatherAppComponent implements OnInit {
         this.todayMax = this.weekForecast[0].temp.max;
         this.todayMin = this.weekForecast[0].temp.min;
         this.dateFormatter();
+        this.setRestOfWeekForeCast();
         this.isLoading = false;
       }
         ,
@@ -81,6 +83,10 @@ export class WeatherAppComponent implements OnInit {
           console.log(error);
           this.isLoading = false;
         });
+  }
+
+  setRestOfWeekForeCast() {
+    return this.weekForecast.shift();
   }
 
   resetForecast() {
