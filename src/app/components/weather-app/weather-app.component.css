@@ -35,12 +35,12 @@
   span.stretch {
     display: inline-block;
     padding-right: 5px;
-    margin: 40px;
-    -webkit-transform: scale(3, 9); /* Safari and Chrome */
-    -moz-transform: scale(3, 9); /* Firefox */
-    -ms-transform: scale(3, 9); /* IE 9 */
-    -o-transform: scale(3, 9); /* Opera */
-    transform: scale(3, 9); /* W3C */
+    margin: 25px;
+    -webkit-transform: scale(2,6); /* Safari and Chrome */
+    -moz-transform: scale(2,6); /* Firefox */
+    -ms-transform: scale(2,6); /* IE 9 */
+    -o-transform: scale(2,6); /* Opera */
+    transform: scale(2,6); /* W3C */
   }
 
   .temp-num {
@@ -54,6 +54,10 @@
     font-size: xx-large;
     display: flex;
     justify-content: center;
+  }
+
+  .hide {
+    display: none;
   }
 }
 
@@ -112,5 +116,15 @@
     font-size: xx-large;
     display: flex;
     justify-content: center;
+  }
+
+  .error-message {
+    word-wrap: break-word;
+    height: 14rem;
+    padding: 20%;
+  }
+
+  .hide {
+    display: none;
   }
 }

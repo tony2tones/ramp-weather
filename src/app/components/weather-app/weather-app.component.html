@@ -1,11 +1,14 @@
 <div class="container">
-  <div *ngIf="isLoading && !sortedForecast.length">
-    <div class="error-message" *ngIf="noData">
-      {{ errormsg }}
-      test
+    <div *ngIf="isLoading && sortedForecast.length">
+      <app-loader></app-loader>
     </div>
+  <div class="error-message" *ngIf="noData && !isLoading">
+    <p>No data to display </p>
+    <p>{{ errormsg }}</p>
   </div>
-  <div class="weather-panel" [ngClass]="{ hide: isLoading }">
+</div>
+<div class="container" *ngIf="noData || !isLoading" [ngClass]="{ hide: isLoading || noData}">
+  <div class="weather-panel" >
     <p class="title">Today</p>
     <div class="temp">
       <div class="temp-num">

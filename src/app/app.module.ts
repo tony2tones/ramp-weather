@@ -7,6 +7,7 @@ import { WeatherAppComponent } from './components/weather-app/weather-app.compon
 import { WeatherService } from './services/weather.service';
 import { WeekWeatherComponent } from './components/week-weather/week-weather.component';
 import { CelcuisConverter } from './directives/celcuisConverter.directive';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CelcuisConverter } from './directives/celcuisConverter.directive';
     WeatherAppComponent,
     WeekWeatherComponent,
     CelcuisConverter,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

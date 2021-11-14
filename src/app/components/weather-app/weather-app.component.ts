@@ -49,7 +49,10 @@ export class WeatherAppComponent implements OnInit {
   }
 
   public errorHandler(err: any) {
-    this.errormsg = 'failed to load weather please allow geolocation and refresh';
+    console.log(err.message);
+    this.noData = true;
+    this.isLoading = false;
+    this.errormsg = `${err.statusText}`;
   }
 
   public dateFormatter() {
@@ -76,6 +79,7 @@ export class WeatherAppComponent implements OnInit {
       .subscribe((response: Forecast) => {
         if (!response) {
           this.noData = true;
+          this.isLoading = false;
         }
 
         this.forecast = response;
@@ -90,9 +94,7 @@ export class WeatherAppComponent implements OnInit {
       },
         (error) => {
           this.errorHandler(error);
-          this.noData = true;
           console.log(error);
-          this.isLoading = false;
         });
   }
 
