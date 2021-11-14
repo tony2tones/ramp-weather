@@ -63,13 +63,14 @@ export class WeatherAppComponent implements OnInit {
     let restOfWeek = weeklyForcast;
     let index = 1;
     for (let i = 0; i < restOfWeek.length; i++) {
+      // Add date day to the day of the week data collection
       let dayOfweek = new Date(Date.now() + (index + i) * 86400000);
       restOfWeek[i].day = dayOfweek.getDate();
     }
     this.sortedForecast = restOfWeek;
   }
 
-  public getWeather(position: any) {
+  public getWeather(position: any):void {
     this.isLoading = true;
     this.weatherService.getWeather(position.coords.longitude, position.coords.longitude, this.dayCount)
       .subscribe((response: Forecast) => {
@@ -80,9 +81,9 @@ export class WeatherAppComponent implements OnInit {
         this.forecast = response;
         this.cityName = this.forecast.city.name;
         this.weekForecast = this.forecast.list;
-
         this.todayMax = this.weekForecast[0].temp.max;
         this.todayMin = this.weekForecast[0].temp.min;
+
         this.setRestOfWeekForeCast(this.weekForecast);
         this.dateFormatter();
         this.isLoading = false;
@@ -95,12 +96,12 @@ export class WeatherAppComponent implements OnInit {
         });
   }
 
-  setRestOfWeekForeCast(weeklyForcast: List[]) {
+  setRestOfWeekForeCast(weeklyForcast: List[]):void {
     weeklyForcast.shift();
     this.futureDateFormatter(weeklyForcast);
   }
 
-  resetForecast() {
+  resetForecast():void {
     this.forecast = <Forecast>{};
   }
 }
