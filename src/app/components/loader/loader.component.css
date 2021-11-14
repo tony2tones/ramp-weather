@@ -1,9 +1,62 @@
-.container {
+/* Mobile Styles */
+@media handheld, screen and (max-width: 450px) {
+  .loader {
     background-color: whitesmoke;
     color: #24272e;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 30rem;
-    padding: 0.2rem;
-    margin: auto;
+    height: 16rem;
+    padding: 0.2%;
     text-align: center;
   }
+  .loader-container {
+    display: flex;
+    max-width: 14rem;
+    padding-top: 5rem;
+    max-height: 6rem;
+  }
+  .loader-box {
+    width: 2rem;
+    height: 2rem;
+    background-color: #24272e;
+    border: 2px solid#24272e;
+    animation: rotation 2s infinite linear;
+  }
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+}
+
+@media handheld, screen and (min-width: 743px) {
+  .loader {
+    max-width: 30rem;
+    height: 16rem;
+  }
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    max-width: 14rem;
+    padding-top: 5rem;
+    max-height: 6rem;
+  }
+  .loader-box {
+    width: 2rem;
+    height: 2rem;
+    background-color: #24272e;
+    border: 2px solid#24272e;
+    animation: rotation 2s infinite linear;
+  }
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+}
