@@ -52,7 +52,7 @@ export class WeatherAppComponent implements OnInit {
 
   public dateFormatter() {
     const dateValue: Date = new Date();
-    let day = dateValue.getDay();
+    let day = dateValue.getDate();
     let month = dateValue.toLocaleString('default', { month: 'short' });
     this.todayDate = `${day} ${month}`;
   }
