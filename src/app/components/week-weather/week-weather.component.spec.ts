@@ -9,9 +9,9 @@ describe('WeekWeatherComponent', () => {
 
   beforeEach((() => {
     TestBed.configureTestingModule({
-      declarations: [ WeekWeatherComponent, CelcuisConverter],
+      declarations: [WeekWeatherComponent, CelcuisConverter],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,6 +22,20 @@ describe('WeekWeatherComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('checkout emitter', () => {
+    let emitterSpy: any;
+
+    beforeEach(() => {
+      emitterSpy = jest.spyOn(component.rendingComplete, 'emit');
+      component.ngAfterViewChecked();
+      fixture.detectChanges();
+    });
+
+    test('assert emitter', () => {
+      expect(emitterSpy).toHaveBeenCalledWith(true);
+    })
   });
 });
 

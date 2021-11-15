@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Forecast, List } from '../../src/app/models/forecast.models';
-import { WeatherService } from '../../src/app/services/weather.service';
+/* istanbul ignore next */
+import { Forecast, List } from '../app/models/forecast.models';
+/* istanbul ignore next */
+import { WeatherService } from '../app/services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -75,6 +77,7 @@ export class AppComponent implements OnInit {
   }
 
   public getWeather(position: any): void {
+    console.log('position', position);
     this.isLoading = true;
     this.weatherService.getWeather(position.coords.longitude, position.coords.longitude, this.dayCount)
       .subscribe((response: Forecast) => {
