@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Forecast, List } from 'src/app/models/forecast.models';
-import { WeatherService } from 'src/app/services/weather.service';
+import { Forecast, List } from '../../src/app/models/forecast.models';
+import { WeatherService } from '../../src/app/services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -93,7 +93,7 @@ export class AppComponent implements OnInit {
         this.dateFormatter();
         this.isLoading = false;
       },
-        (error) => {
+        (error:any) => {
           this.errorHandler(error);
           console.log(error);
         });

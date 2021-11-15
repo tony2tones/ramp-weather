@@ -1,35 +1,33 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2017",
-    "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
+   "compilerOptions": {
+      "experimentalDecorators": true,
+      "outDir": "dist",
+      "module": "esnext",
+      "target": "es5",
+      "lib": ["es6", "dom"],
+      "sourceMap": true,
+      "allowJs": true,
+      "jsx": "react",
+      "moduleResolution": "node",
+      "rootDir": "src",
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "noUnusedLocals": true,
+      "baseUrl": "./src"    
+    },
+    "exclude": [
+      "node_modules",
+      "build",
+      "dist",
+      "config",    
+      "scripts",
+      "acceptance-tests",
+      "webpack",
+      "jest",
+      "src/setupTests.ts"
     ]
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "disableTypeScriptVersionCheck": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  },
-  "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": [
-      "<rootDir>/setup-jest.ts"
-    ],
-  "include": ["**/*", "jest.config.js"]
 }

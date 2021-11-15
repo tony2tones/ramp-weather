@@ -10,7 +10,7 @@
     "emitDecoratorMetadata": true // 3
   },
   "files": [
-    "./setup-jest.ts",
+    "setup-jest.ts",
     "src/polyfills.ts"
   ],
   "include": [
