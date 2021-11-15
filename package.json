@@ -6,7 +6,7 @@
     "start": "webpack serve ",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "jest --runInBand --coverage color"
+    "test": "jest"
   },
   "private": true,
   "dependencies": {
@@ -18,13 +18,15 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@briebug/jest-schematic": "^3.1.0",
     "material-design-icons": "^3.0.1",
-    "rxjs": "~6.6.0",
+    "rxjs": "^6.6.7",
     "ts-jest": "^27.0.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/jest": "latest",
     "@angular-devkit/build-angular": "~12.2.8",
     "@angular/cli": "~12.2.8",
     "@angular/compiler-cli": "~12.2.0",
@@ -52,21 +54,5 @@
     "webpack": "^5.63.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.3.1"
-  },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setup-jest.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/dist/"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "<rootDir>/tsconfig.spec.json",
-        "stringifyContentPathRegex": "\\.html$"
-      }
-    }
   }
 }
