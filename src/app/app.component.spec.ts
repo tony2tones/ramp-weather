@@ -9,7 +9,7 @@ import { WeatherService } from './services/weather.service';
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  // let weatherService: MockApiService;
+
   beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [

@@ -1,4 +1,4 @@
-class Mocks {
+export class Mocks {
     public static apiResponse = {
         "city":
         {
