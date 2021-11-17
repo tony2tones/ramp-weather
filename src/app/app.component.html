@@ -32,7 +32,7 @@
         <p>{{ todayDate }}</p>
       </div>
       <div class="location">
-        <p>Location: {{ forecast.city?.name }}</p>
+        <p>{{ forecast.city?.name || 'Your area' }}</p>
       </div>
       <div class="weather-week">
         <div *ngFor="let dayOfWeek of sortedForecast; let i = index">

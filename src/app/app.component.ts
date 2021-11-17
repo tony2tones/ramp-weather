@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-/* istanbul ignore next */
-import { Forecast, List } from '../app/models/forecast.models';
-/* istanbul ignore next */
-import { WeatherService } from '../app/services/weather.service';
+import { Forecast, List, Position } from 'src/app/models/forecast.models';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +31,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // for browsers that do not have geolcation support
     if (!navigator.geolocation) {
-      this.errormsg = 'geolocation not supportd';
+      this.errormsg = 'geolocation not supported';
     }
     this.getForecast();
   }
@@ -47,12 +45,11 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public successHandler(position: any): void {
+  public successHandler(position: Position): void {
     this.getWeather(position);
   }
 
   public errorHandler(err: any) {
-    console.log(err.message);
     this.noData = true;
     this.isLoading = false;
     this.errormsg = `${err.statusText}`;
@@ -76,33 +73,28 @@ export class AppComponent implements OnInit {
     this.sortedForecast = restOfWeek;
   }
 
-  public getWeather(position: any): void {
-    console.log('position', position);
+  public getWeather(position: Position): void {
     this.isLoading = true;
-    this.weatherService.getWeather(position.coords.longitude, position.coords.longitude, this.dayCount)
+    this.weatherService.getWeather(position.coords.latitude, position.coords.longitude, this.dayCount)
       .subscribe((response: Forecast) => {
-        if (!response) {
-          this.noData = true;
-          this.isLoading = false;
-        }
-
         this.forecast = response;
         this.cityName = this.forecast.city.name;
         this.weekForecast = this.forecast.list;
         this.todayMax = this.weekForecast[0].temp.max;
         this.todayMin = this.weekForecast[0].temp.min;
 
-        this.setRestOfWeekForeCast(this.weekForecast);
+        this.setRestOfWeekForecast(this.weekForecast);
         this.dateFormatter();
         this.isLoading = false;
       },
         (error:any) => {
           this.errorHandler(error);
-          console.log(error);
+          this.noData = true;
+          this.isLoading = false;
         });
   }
 
-  setRestOfWeekForeCast(weeklyForcast: List[]): void {
+  setRestOfWeekForecast(weeklyForcast: List[]): void {
     weeklyForcast.shift();
     this.futureDateFormatter(weeklyForcast);
   }
