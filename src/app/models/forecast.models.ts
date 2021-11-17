@@ -10,10 +10,13 @@ export interface City {
     name: string;
     coord: Coord;
 }
+export interface Position {
+    coords: Coord;
+}
 
 export interface Coord {
-    lon: number;
-    lat: number;
+    longitude: number;
+    latitude: number;
 }
 
 export interface List {
@@ -26,4 +29,5 @@ export interface Temp {
     min: number;
     max: number;
 }
+
 

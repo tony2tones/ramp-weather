@@ -9,12 +9,13 @@ import { Observable } from 'rxjs';
 )
 export class WeatherService {
 
-    apiKey = 'YOUR_API_KEY';
-    url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
+    apiKey:string = '53f9d8e4213222cf517d86dc406d67fc';
+    url:string = 'http://api.openweathermap.org/data/2.5/forecast/daily';
 
     constructor(private http: HttpClient) { }
 
-    getWeather(lon:number, lat: number, numOfDays: number): Observable<any> {
+    public getWeather(lon:number, lat: number, numOfDays: number): Observable<any> {
+        console.log(lon,lat,numOfDays);
         return this.http.get(`${this.url}?lat=${lat}&lon=${lon}&cnt${numOfDays}&appid=${this.apiKey}`);
     }
 }

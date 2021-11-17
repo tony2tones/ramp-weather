@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class Mocks {
     public static apiResponse = {
         "city":
@@ -123,8 +124,8 @@ export class Mocks {
                     "sunset": 1637251669,
                     "temp": {
                         "day": 302.66,
-                        "min": 296.21,
-                        "max": 305.74,
+                        "min": 296.36,
+                        "max": 305.94,
                         "night": 298.64,
                         "eve": 305.32,
                         "morn": 296.21
@@ -190,8 +191,8 @@ export class Mocks {
                     "sunset": 1637424456,
                     "temp": {
                         "day": 303.68,
-                        "min": 296.43,
-                        "max": 306.47,
+                        "min": 295.96,
+                        "max": 305.81,
                         "night": 300.7,
                         "eve": 306.42,
                         "morn": 296.43
@@ -205,5 +206,12 @@ export class Mocks {
                 }, { "dt": 1637488800, "sunrise": 1637470562, "sunset": 1637510851, "temp": { "day": 298.5, "min": 293.4, "max": 302.31, "night": 296.23, "eve": 301.8, "morn": 294.6 }, "feels_like": { "day": 297.87, "night": 295.43, "eve": 300.41, "morn": 293.64 }, "pressure": 1013, "humidity": 30, "weather": [{ "id": 800, "main": "Clear", "description": "sky is clear", "icon": "01d" }], "speed": 12.17, "deg": 59, "gust": 16.78, "clouds": 0, "pop": 0 }
 
             ]
+    }
+
+    public static position = {
+        coords : {
+            "longitude": 18.5696,
+            "latitude": 18.5696
+        }
     }
 }
