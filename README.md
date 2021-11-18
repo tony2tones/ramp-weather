@@ -1,12 +1,16 @@
 # RampWeather
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
-This is a weather application uses Material Icons,  
-Weather data is coming from [Open weather API](https://openweathermap.org/api), which requires registration and then you w
+The weather application uses [Material Icons](https://google.github.io/material-design-icons/).  
+
+## Setup and how to get your API key
+
+Weather data is coming from [Open weather API](https://openweathermap.org/api), 
+which requires registration and you will need to add your OpenWeatherAPI key as seen in the services file.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` or `npm run test` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## runing unit tests with Jest
 > This is just incase I don't manage to setup my jest on this project correctly. 
@@ -24,11 +28,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npx jest` to execute the unit tests via [Jest](https://jestjs.io/docs/getting-started).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
