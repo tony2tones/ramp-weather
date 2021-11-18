@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="container" *ngIf="isLoading || noData">
-    <div >
+    <div>
       <app-loader></app-loader>
     </div>
     <div class="error-message" *ngIf="noData && !isLoading">
@@ -8,10 +8,7 @@
       <p>{{ errormsg }}</p>
     </div>
   </div>
-  <div
-    class="container"
-    *ngIf="!noData && !isLoading"
-  >
+  <div class="container" *ngIf="!noData && !isLoading">
     <div class="weather-panel">
       <p class="title">Today</p>
       <div class="temp">
@@ -32,7 +29,7 @@
         <p>{{ todayDate }}</p>
       </div>
       <div class="location">
-        <p>{{ forecast.city?.name || 'Your area' }}</p>
+        <p>{{ forecast.city?.name || "Your area" }}</p>
       </div>
       <div class="weather-week">
         <div *ngFor="let dayOfWeek of sortedForecast; let i = index">

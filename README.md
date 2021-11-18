@@ -1,11 +1,18 @@
 # RampWeather
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
-This is a weather application uses Material Icons,  using Open weather API
+This is a weather application uses Material Icons,  
+Weather data is coming from [Open weather API](https://openweathermap.org/api), which requires registration and then you w
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## runing unit tests with Jest
+> This is just incase I don't manage to setup my jest on this project correctly. 
+Unit tests can be run using the following command line
+
+    npx jest
 
 ## Code scaffolding
 
