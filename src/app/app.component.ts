@@ -12,17 +12,24 @@ export class AppComponent implements OnInit {
   public isLoading: boolean = true;
   public hasLoaded: boolean = false;
   public noData: boolean = false;
+
   public forecast: Forecast = <Forecast>{};
   public weekForecast: List[] = [];
   public sortedForecast: List[] = [];
+
   public dateOfWeek: number = 0;
   public todayMax: number = 0;
   public todayMin: number = 0;
   public todayDate = {};
+
   public errormsg: string = '';
+
+  // Coordinates
   public lon: number = 0;
   public lat: number = 0;
+
   public cityName: string = '';
+
   // default to 7 days
   public dayCount: number = 7;
 
