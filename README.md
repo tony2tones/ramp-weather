@@ -3,6 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 The weather application uses [Material Icons](https://google.github.io/material-design-icons/).  
 
+In this project, seeing that I needed to have a 7 day forecast including today. I have used the following 
+[api](https://openweathermap.org/forecast16_) that provides a forecast for the next 16 days.
+
 ## Setup and how to get your API key
 
 Weather data is coming from [Open weather API](https://openweathermap.org/api), 
