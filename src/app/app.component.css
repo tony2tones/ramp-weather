@@ -15,6 +15,11 @@
     margin: auto;
     text-align: center;
   }
+
+  .weather-week {
+    padding-left: 2rem;
+  }
+
   .container {
     background-color: whitesmoke;
     color: #24272e;
