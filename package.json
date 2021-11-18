@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "ngcc",
     "ng": "ng",
-    "start": "webpack drive ",
+    "start": "webpack-dev-server",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest --runInBand --coverage color"
