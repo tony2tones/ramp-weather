@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 export class Mocks {
+    public static errorResponse = {};
     public static apiResponse = {
         "city":
         {

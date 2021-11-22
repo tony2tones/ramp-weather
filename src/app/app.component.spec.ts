@@ -11,6 +11,7 @@ import { WeatherService } from './services/weather.service';
 // @ts-ignore
 const mockSuccess = (success, error) => {
     success({ coords: Mocks.position.coords });
+    error({ error: 'error message' });
 }
 const mockGetcurrentPosition = jest.fn(mockSuccess);
 // @ts-ignore
@@ -77,4 +78,40 @@ describe('AppComponent', () => {
             expect(component.isLoading).toBe(false);
         });
     });
+
+    describe(`should check getWeather with failure handler is called`, () => {
+        let errorHandlerSpy: any;
+
+        beforeEach(() => {
+            component.dayCount = 7;
+            errorHandlerSpy = jest.spyOn(component, 'errorHandler');
+            component.errorHandler(Mocks.errorResponse);
+            component.ngOnInit();
+            fixture.detectChanges();
+        })
+
+        test('assert errorHandler to be call and assert variable states', () => {
+            expect(errorHandlerSpy).toHaveBeenCalledWith(Mocks.errorResponse);
+            expect(component.noData).toBe(true);
+            expect(component.isLoading).toBe(false);
+        });
+    });
+
+    describe('errorHandler check', () => {
+        let errorHandlerSpy;
+        let err = 'this is a test error message';
+
+        beforeEach(() => {
+            errorHandlerSpy = jest.spyOn(component, 'errorHandler');
+            component.errorHandler(err);
+            fixture.detectChanges();
+        })
+
+        test('check and assert error message', () => {
+            expect(errorHandlerSpy).toHaveBeenCalledWith(err);
+            expect(component.noData).toBe(true);
+            expect(component.isLoading).toBe(false);
+
+        })
+    })
 });
