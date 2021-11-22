@@ -1,9 +1,23 @@
-import { Weather } from "./weather.model";
-
-
 export interface Forecast {
     city: City;
     list: List[];
+}
+
+export interface List {
+    weather: Weather[];
+    temp: Temp;
+    day?: number;
+}
+
+export interface Weather {
+    description: string;
+    icon: string;
+    main: string;
+}
+
+export interface Temp {
+    min: number;
+    max: number;
 }
 
 export interface City {
@@ -18,16 +32,4 @@ export interface Coord {
     longitude: number;
     latitude: number;
 }
-
-export interface List {
-    weather: Weather[];
-    temp: Temp;
-    day?: number;
-}
-
-export interface Temp {
-    min: number;
-    max: number;
-}
-
 

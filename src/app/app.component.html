@@ -3,7 +3,7 @@
     <div>
       <app-loader></app-loader>
     </div>
-    <div class="error-message" *ngIf="noData && !isLoading">
+    <div class="error-message" *ngIf="!isLoading && nodata">
       <p>No data to display.</p>
       <p>{{ errormsg }}</p>
     </div>

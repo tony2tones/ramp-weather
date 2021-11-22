@@ -39,12 +39,13 @@ export class AppComponent implements OnInit {
     // for browsers that do not have geolcation support
     if (!navigator.geolocation) {
       this.errormsg = 'geolocation not supported';
+      this.isLoading = false;
     }
     this.getForecast();
   }
 
 
-  public getForecast() {
+  public getForecast(): void {
     this.resetForecast();
     navigator.geolocation.getCurrentPosition(
       this.successHandler.bind(this),
@@ -56,13 +57,13 @@ export class AppComponent implements OnInit {
     this.getWeather(position);
   }
 
-  public errorHandler(err: any) {
+  public errorHandler(err: any):void {
     this.noData = true;
     this.isLoading = false;
     this.errormsg = `${err.statusText}`;
   }
 
-  public dateFormatter() {
+  public dateFormatter(): void {
     const dateValue: Date = new Date();
     let day = dateValue.getDate();
     let month = dateValue.toLocaleString('default', { month: 'short' });
@@ -101,12 +102,12 @@ export class AppComponent implements OnInit {
         });
   }
 
-  setRestOfWeekForecast(weeklyForcast: List[]): void {
+  public setRestOfWeekForecast(weeklyForcast: List[]): void {
     weeklyForcast.shift();
     this.futureDateFormatter(weeklyForcast);
   }
 
-  resetForecast(): void {
+  public resetForecast(): void {
     this.forecast = <Forecast>{};
   }
 }
