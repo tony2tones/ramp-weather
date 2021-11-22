@@ -16,10 +16,10 @@ which requires registration and you will need to add your OpenWeatherAPI key as 
 Run `ng serve` or `npm run test` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## runing unit tests with Jest
-> This is just incase I don't manage to setup my jest on this project correctly. 
-Unit tests can be run using the following command line
 
-    npx jest
+Unit tests can be run using the following command line.
+
+    npm run test
 
 ## Code scaffolding
 
