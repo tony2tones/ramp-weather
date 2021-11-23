@@ -36,6 +36,8 @@ Unit tests can be run using the following command line to execute the unit tests
 
     npm run test
 
+After the unit tests are ran, to view the unit test results navigate to the `\ramp-weather\coverage\lcov-report` folder and open the index.html file.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
