@@ -10,7 +10,7 @@ that provides a forecast for the next 16 days.
 
 &nbsp;
 
->I have managed to fix my jest issue and is now runnig via the command line, however this project
+>I have managed to fix the jest issue and is now runnig via the command line, however this project
 is unfortunately not running via webpack, as a work around the project will run using ng serve as oppose to using webpack.
 
 &nbsp;
