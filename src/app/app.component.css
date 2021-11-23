@@ -2,8 +2,9 @@
 @media handheld, screen and (max-width: 743px) {
   .main-container {
     background-color: coral;
-    height: 100vh;
+    height: auto;
     padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   .loader {
     background-color: whitesmoke;
